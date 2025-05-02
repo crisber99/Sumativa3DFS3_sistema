@@ -1,0 +1,21 @@
+<div class="formulario-rpass">
+    <form [formGroup]="formularioRpass" (ngSubmit)="recuperar()">
+        <h2>Recuperar Clave</h2>
+        <div class="form-group">
+            <label for="mail">Correo electrónico:</label>
+            <input type="email" formControlName="mail" id="mail" placeholder="Correo electrónico" class="form-control">
+            <div
+                *ngIf="formularioRpass.get('mail')?.invalid && (formularioRpass.get('mail')?.dirty || formularioRpass.get('mail')?.touched)">
+                <p class="text-danger" *ngIf="formularioRpass.get('mail')?.hasError('required')">Debe ingresar su correo
+                    electrónico</p>
+                <p class="text-danger" *ngIf="formularioRpass.get('mail')?.hasError('mail')">El correo electrónico no es
+                    válido</p>
+                <p class="text-danger" *ngIf="formularioRpass.get('mail')?.hasError('pattern')">Por favor proporcione una
+                    dirección de correo electrónico válida</p>
+            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-primary">Recuperar</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,122 @@
+<div class="formulario-registro">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form [formGroup]="formularioRegistro" (ngSubmit)="registrar()">
+                    <h2>Registro</h2>
+                    <div class="mb-3">
+                        <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+                        <input type="text" id="nombreUsuario" class="form-control" formControlName="nombreUsuario">
+                        <div style="font-size: x-small; color: red;"
+                            *ngIf="formularioRegistro.get('nombreUsuario')?.invalid && (formularioRegistro.get('nombreUsuario')?.dirty || formularioRegistro.get('nombreUsuario')?.touched)">
+                            <p class="text-danger"
+                                *ngIf="formularioRegistro.get('nombreUsuario')?.hasError('required')">Debe ingresar un
+                                nombre de usuario</p>
+                            <p class="text-danger"
+                                *ngIf="formularioRegistro.get('nombreUsuario')?.hasError('minlength')">El nombre de
+                                usuario debe tener al menos 6 caracteres</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mail" class="form-label">Correo electrónico</label>
+                        <input type="email" id="mail" class="form-control" formControlName="mail">
+                        <div style="font-size: x-small; color: red;"
+                            *ngIf="formularioRegistro.get('mail')?.invalid && (formularioRegistro.get('mail')?.dirty || formularioRegistro.get('mail')?.touched)">
+                            <p class="text-danger" *ngIf="formularioRegistro.get('mail')?.hasError('required')">Debe
+                                ingresar un correo
+                                electrónico</p>
+                            <p class="text-danger" *ngIf="formularioRegistro.get('mail')?.hasError('email')">El correo
+                                electrónico no es
+                                válido</p>
+                            <p class="text-danger" *ngIf="formularioRegistro.get('mail')?.hasError('pattern')">Por favor
+                                proporcione una
+                                dirección de correo electrónico válida</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" id="password" class="form-control" formControlName="password"
+                            maxlength="10">
+                        <div style="font-size: x-small; color: red;"
+                            *ngIf="formularioRegistro.get('password')?.invalid && (formularioRegistro.get('password')?.dirty || formularioRegistro.get('password')?.touched)">
+                            <p class="text-danger"
+                                *ngIf="formularioRegistro.get('password')?.hasError('invalidMayuscula')">Debe
+                                contener al menos una letra mayúscula.</p>
+                            <p class="text-danger" *ngIf="formularioRegistro.get('password')?.hasError('invalidMin')">
+                                Debe
+                                contener al menos una letra minúscula.</p>
+                            <p class="text-danger" *ngIf="formularioRegistro.get('password')?.hasError('invalidNum')">
+                                Debe
+                                contener al menos un número.</p>
+                            <p class="text-danger"
+                                *ngIf="formularioRegistro.get('password')?.hasError('invalidCaracter')">
+                                Debe
+                                contener al menos un carácter especial (por ejemplo, !, #, $).</p>
+                            <p class="text-danger"
+                                *ngIf="formularioRegistro.get('password')?.hasError('invalidLength')">
+                                Debe tener una
+                                longitud mínima, al menos 8 caracteres y máximo 10.</p>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="repetirPassword" class="form-label">Repetir contraseña</label>
+                        <input type="password" id="repetirPassword" class="form-control"
+                            formControlName="repetirPassword">
+                        <div style="font-size: x-small; color: red;"
+                            *ngIf="formularioRegistro.get('repetirPassword')?.invalid && (formularioRegistro.get('repetirPassword')?.dirty || formularioRegistro.get('repetirPassword')?.touched)">
+                            <p class="text-danger"
+                                *ngIf="formularioRegistro.get('repetirPassword')?.hasError('required')">Debe repetir la
+                                contraseña</p>
+                            <p class="text-danger"
+                                *ngIf="formularioRegistro.get('repetirPassword')?.hasError('invalidPassRepit')">
+                                Las contraseñas deben coincidir.</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" formControlName="fechaNacimiento" (change)="validarEdad()" maxlength="10">
+                        <div style="font-size: x-small; color: red;"
+                            *ngIf="formularioRegistro.get('fechaNacimiento')?.invalid && (formularioRegistro.get('fechaNacimiento')?.dirty || formularioRegistro.get('fechaNacimiento')?.touched)">
+                            <p class="text-danger"
+                                *ngIf="formularioRegistro.get('fechaNacimiento')?.hasError('required')">Debe ingresar
+                                una
+                                fecha de nacimiento</p>
+                            <p class="text-danger"
+                                *ngIf="formularioRegistro.get('fechaNacimiento')?.hasError('invalidDate')">Por favor
+                                ingrese
+                                una fecha valida.</p>
+                        </div>
+                        <div style="font-size: x-small; color: red;" *ngIf="!edadValida">
+                            <p class="text-danger">La persona es menor de 13 años</p>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="mb-3">
+                        <label for="perfil" class="form-label">Perfil (a modo de prueba)</label>
+                        <select name="perfil" formControlName="perfil">
+                            <option value="" disabled>Seleccione</option>
+                            <option *ngFor="let perfil of Perfiles" [ngValue]="perfil">
+                                {{ perfil.perfilName }}
+                            </option>
+                        </select>
+                        <div style="font-size: x-small; color: red;"
+                            *ngIf="formularioRegistro.get('perfil')?.invalid && (formularioRegistro.get('perfil')?.dirty || formularioRegistro.get('perfil')?.touched)">
+                            <p class="text-danger" *ngIf="formularioRegistro.get('perfil')?.hasError('required')">Debe
+                                seleccionar un
+                                perfil.</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center" style="flex-direction: column;">
+                        <button type="submit" class="btn btn-primary"
+                            [disabled]="!formularioRegistro.valid">Registrar</button>
+                        <p class="text-center text-muted">Ya tienes una cuenta? <a [routerLink]="['/login']"
+                                class="fw-bold text-body"><u>Inicia Sesión</u></a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

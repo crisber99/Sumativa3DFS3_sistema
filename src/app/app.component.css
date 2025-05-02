@@ -1,0 +1,78 @@
+.formulario-inicial {
+    position: relative;
+    z-index: 0;
+    max-width: 800px;
+    /* max-height: 600px; */
+    min-height: 600px;
+    margin: 0px auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .container-pag {
+      position: relative;
+      width: 100%;
+      height: auto;
+      background-size: cover;
+      background-position: center;
+    }
+  
+  .fondo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/assets/img/libros.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.5;
+    }
+  
+    .formulario {
+      position: relative;
+      z-index: 0;
+      max-width: 350px;
+      max-height: 350px;
+      margin: 0px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    @media (max-width: 768px) {
+      .formulario {
+      margin: 20px auto;
+      }
+      }
+       
+      @media (max-width: 480px) {
+      .formulario {
+      padding: 10px;
+      }
+      input[type="text"],
+      input[type="password"] {
+      font-size: 10px;
+      }
+      .btn-ingresar,
+      .btn-recuperar {
+      font-size: 10px;
+      }
+      }
+       
+      @media (max-width: 320px) {
+      .formulario {
+      padding: 5px;
+      }
+      input[type="text"],
+      input[type="password"] {
+      font-size: 8px;
+      }
+      .btn-ingresar,
+      .btn-recuperar {
+      font-size: 8px;
+      }
+      }

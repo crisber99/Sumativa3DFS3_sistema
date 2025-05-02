@@ -1,0 +1,87 @@
+
+ 
+.formulario-rpass {
+    position: relative;
+    z-index: 0;
+    max-width: 350px;
+    max-height: 350px;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+   
+  .form-group {
+    margin-bottom: 10px;
+  }
+   
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+   
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+   
+  .btn-ingresar,
+  .btn-recuperar {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+   
+  .btn-ingresar:hover,
+  .btn-recuperar:hover {
+    background-color: #3e8e41;
+  }
+   
+  @media (max-width: 768px) {
+      .formulario-rpass {
+        max-height: 1700px;
+        margin: auto auto;
+      }
+      }
+       
+      @media (max-width: 480px) {
+      .formulario-rpass {
+      padding: 10px;
+      }
+      input[type="text"],
+      input[type="password"] {
+      font-size: 10px;
+      max-height: 1700px;
+      }
+      .btn-ingresar,
+      .btn-recuperar {
+      font-size: 10px;
+      max-height: 1700px;
+      }
+      }
+       
+      @media (max-width: 320px) {
+      .formulario-rpass {
+      padding: 5px;
+      max-height: 1700px;
+      }
+      input[type="text"],
+      input[type="password"] {
+      font-size: 8px;
+      }
+      .btn-ingresar,
+      .btn-recuperar {
+      font-size: 8px;
+      }
+      }
+       

@@ -15,8 +15,11 @@ export class ApiServiceService {
     return this.http.get(this.urlUsuario);
   }
 
+  postAddUser(nombre:String, ap_paterno:String, email: String, pass: String, rol:String, rut:String){
+return this.http.post(`${this.urlUsuario}/add`, { nombre, ap_paterno, email, pass, rol, rut });
+  }
+
   postUsuarioLogin(rut: String, pass: String){
-    // return this.http.post(this.urlUsuario + '/login', {rut, pass});
     return this.http.post(`${this.urlUsuario}/login`, { rut, pass });
   }
 

@@ -52,31 +52,31 @@ export class UsuarioComponent {
     ngOnInit(): void {
     }
   
-    togglePasswordVisibility(field: 'password' | 'repetirPassword'): void {
-      if (field === 'password') {
-        this.showPassword = !this.showPassword;
-      } else {
-        this.showRepeatPassword = !this.showRepeatPassword;
-      }
-    }
+    // togglePasswordVisibility(field: 'password' | 'repetirPassword'): void {
+    //   if (field === 'password') {
+    //     this.showPassword = !this.showPassword;
+    //   } else {
+    //     this.showRepeatPassword = !this.showRepeatPassword;
+    //   }
+    // }
   
-    passwordMatchValidator(g: FormGroup) {
-      return g.get('password')?.value === g.get('repetirPassword')?.value ? null : { mismatch: true };
-    }
+    // passwordMatchValidator(g: FormGroup) {
+    //   return g.get('password')?.value === g.get('repetirPassword')?.value ? null : { mismatch: true };
+    // }
   
-    public passwordValidator(): ValidatorFn {
-      return () => {
+    // public passwordValidator(): ValidatorFn {
+    //   return () => {
   
-        const password = this.formularioRegistro.get('password')?.value;
-        const repeat_password = this.formularioRegistro.get('repeat_password')?.value;
+    //     const password = this.formularioRegistro.get('password')?.value;
+    //     const repeat_password = this.formularioRegistro.get('repeat_password')?.value;
   
-        if(!password || !repeat_password) return { isValid: false };
+    //     if(!password || !repeat_password) return { isValid: false };
   
-        if(password!==repeat_password) return {isValid:false};      
+    //     if(password!==repeat_password) return {isValid:false};      
         
-        return null;
-      };
-    }
+    //     return null;
+    //   };
+    // }
   
     passwordFormField(control: AbstractControl): { [key: string]: boolean } | null {
       const pass = control?.value;
@@ -90,7 +90,7 @@ export class UsuarioComponent {
       }
   
       const LowerPattern = /(?=.*[a-z])/;
-      if (!LowerPattern.test(pass)) {
+      if (!LowerPattern.test(pass)) { 
         return { 'invalidMin': true };
       }
   

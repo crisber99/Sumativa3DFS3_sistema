@@ -32,24 +32,17 @@ import { response } from 'express';
 export class LoginComponent {
   formularioLogin!: FormGroup;
   respuesta!: string;
-  // sessionPerfil = sessionStorage.getItem('perfil');
 
   constructor(
     private router: Router,
     private cookies: CookieService,
     private apiService: ApiServiceService,
-    // private servicioReg: RegistroService,
-    // private jsonUsuario: UsuarioService
   ) { }
 
   Usuarios: any[] = [];
   mensaje = '';
 
   ngOnInit(): void {
-    // this.jsonUsuario.getJsonDataUsuario().subscribe(data => {
-    //   this.Usuarios = data;
-    // });
-
     this.formularioLogin = new FormGroup({
       userName: new FormControl('', [Validators.required, Validators.minLength(6)]),
       contrasena: new FormControl('', [Validators.required, Validators.minLength(8)])
@@ -63,44 +56,21 @@ export class LoginComponent {
         nombreUsuario: this.formularioLogin.get('userName')?.value,
         password: this.formularioLogin.get('contrasena')?.value,
       };
-      // Llamar al servicio de autenticación
 
       console.log('Intentando iniciar sesión:', { login });
 
-      this.apiService.getUsuarioAll().subscribe((response: any) => {
-        console.log('extracción de usuarios exitoso:', response);
-      });
-      // this.apiService.postUsuarioLogin(login.nombreUsuario, login.password).subscribe((response: any) => {
-      //   if (response.token) {
-      //     localStorage.setItem('token', response.token);
-      //     this.router.navigate(['/']);
-      //   } else {
-      //     alert('Credenciales inválidas');
-      //   }
-      // });
+      this.apiService.postUsuarioLogin(login.nombreUsuario, login.password)
+        .subscribe((data: any) => {
+          console.log('Inicio de sesión exitoso:', data);
+          this.cookies.set('perfil', data.perfil);
+          this.router.navigate(['/home']);
+        },
+          (error) => {
+            console.error('Error al obtener los datos', error);
+            this.MjePantalla('error', 'Error al obtener los datos. Error: ' + error.message)
+          });
 
 
-      // this.apiService.postUsuarioLogin(login.nombreUsuario, login.password)
-      //   .subscribe((data: any) => {
-      //     console.log('Inicio de sesión exitoso:', data);
-      //     this.cookies.set('perfil', data.perfil);
-      //     this.router.navigate(['/inicio']);
-      //   },
-      //     (error) => {
-      //       console.error('Error al obtener los datos', error);
-      //       this.MjePantalla('error', 'Error al obtener los datos. Error: ' + error.message)
-      //     });
-
-
-      // const usuario = this.Usuarios.find(user => (user.username === login.nombreUsuario) && user.password === login.password);
-      // if (usuario) {
-      //   console.log('Inicio de sesión exitoso:', usuario);
-      //   this.cookies.set('perfil', usuario.perfil);
-      //   this.router.navigate(['/inicio']);
-      // } else {
-      //   console.log('Usuario o contraseña incorrectos.');
-      //   this.cookies.set('perfil', '');
-      // }
     }
   }
 

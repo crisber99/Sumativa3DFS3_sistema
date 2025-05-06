@@ -45,6 +45,7 @@
     "karma-coverage-istanbul-reporter": "^3.0.3",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "sonar-scan": "^1.0.3",
     "sonarqube-scanner": "^4.3.0",
     "typescript": "~5.4.2"
   }

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.83% </span>
+                <span class="strong">25.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>19/87</span>
+                <span class='fraction'>19/75</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.12% </span>
+                <span class="strong">21.73% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/31</span>
+                <span class='fraction'>5/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.76% </span>
+                <span class="strong">44.44% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/13</span>
+                <span class='fraction'>4/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.35% </span>
+                <span class="strong">25.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/85</span>
+                <span class='fraction'>19/75</span>
             </div>
         
             
@@ -343,28 +343,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -567,31 +567,31 @@ export class UsuarioComponent {
 <span class="fstat-no" title="function not covered" >    ngOnInit(</span>): void {
     }
   
-<span class="fstat-no" title="function not covered" >    togglePasswordVisibility(</span>field: 'password' | 'repetirPassword'): void {
-<span class="cstat-no" title="statement not covered" >      if (field === 'password') {</span>
-<span class="cstat-no" title="statement not covered" >        this.showPassword = !this.showPassword;</span>
-      } else {
-<span class="cstat-no" title="statement not covered" >        this.showRepeatPassword = !this.showRepeatPassword;</span>
-      }
-    }
+    // togglePasswordVisibility(field: 'password' | 'repetirPassword'): void {
+    //   if (field === 'password') {
+    //     this.showPassword = !this.showPassword;
+    //   } else {
+    //     this.showRepeatPassword = !this.showRepeatPassword;
+    //   }
+    // }
   
-<span class="fstat-no" title="function not covered" >    passwordMatchValidator(</span>g: FormGroup) {
-<span class="cstat-no" title="statement not covered" >      return g.get('password')?.value === g.get('repetirPassword')?.value ? null : { mismatch: true };</span>
-    }
+    // passwordMatchValidator(g: FormGroup) {
+    //   return g.get('password')?.value === g.get('repetirPassword')?.value ? null : { mismatch: true };
+    // }
   
-    public <span class="fstat-no" title="function not covered" >passwordValidator(</span>): ValidatorFn {
-<span class="cstat-no" title="statement not covered" >      return <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+    // public passwordValidator(): ValidatorFn {
+    //   return () =&gt; {
   
-        const password = <span class="cstat-no" title="statement not covered" >this.formularioRegistro.get('password')?.value;</span>
-        const repeat_password = <span class="cstat-no" title="statement not covered" >this.formularioRegistro.get('repeat_password')?.value;</span>
+    //     const password = this.formularioRegistro.get('password')?.value;
+    //     const repeat_password = this.formularioRegistro.get('repeat_password')?.value;
   
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if(!password || !repeat_password) <span class="cstat-no" title="statement not covered" >return { isValid: false };</span></span>
+    //     if(!password || !repeat_password) return { isValid: false };
   
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if(password!==repeat_password) <span class="cstat-no" title="statement not covered" >return {isValid:false};      </span></span>
+    //     if(password!==repeat_password) return {isValid:false};      
         
-<span class="cstat-no" title="statement not covered" >        return null;</span>
-      };
-    }
+    //     return null;
+    //   };
+    // }
   
     passwordFormField(control: AbstractControl): { [key: string]: boolean } | null {
       const pass = control?.value;
@@ -605,7 +605,7 @@ export class UsuarioComponent {
       }
   
       const LowerPattern = <span class="cstat-no" title="statement not covered" >/(?=.*[a-z])/;</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!LowerPattern.test(pass)) {</span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!LowerPattern.test(pass)) { </span>
 <span class="cstat-no" title="statement not covered" >        return { 'invalidMin': true };</span>
       }
   
@@ -745,7 +745,7 @@ export class UsuarioComponent {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-05T23:28:16.070Z
+                at 2025-05-06T00:40:22.972Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
